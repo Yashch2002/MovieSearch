@@ -1,0 +1,25 @@
+<!-- ... (previous code) -->
+
+<h1>Search Results</h1>
+<% if (results && results.length > 0) { %>
+  <ul>
+    <% results.forEach((result) => { %>
+      <li>
+        <img src="<%= result.Poster %>" alt="<%= result.Title %>">
+        <p><strong>Title:</strong> <%= result.Title %></p>
+        <p><strong>Year:</strong> <%= result.Year %></p>
+        <p><strong>Type:</strong> <%= result.Type %></p>
+        <!-- Insert Button and Form -->
+        <form action="/insert" method="POST">
+  <input type="hidden" name="title" value="<%= result.Title %>">
+  <input type="hidden" name="year" value="<%= result.Year %>">
+  <input type="hidden" name="type" value="<%= result.Type %>">
+  <input type="hidden" name="poster" value="<%= result.Poster %>">
+  <button type="submit">Insert</button>
+</form>
+
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No results found.</p>
+<% } %>
