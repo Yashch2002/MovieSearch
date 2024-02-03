@@ -62,7 +62,7 @@ app.get('/search', async (req, res) => {
 app.post('/insert', (req, res) => {
   const { title, year, type, poster } = req.body;
 
-  const query = 'INSERT INTO  (Title, Year, Type, Poster) VALUES (?, ?, ?, ?)';
+  const query = 'INSERT INTO favourites (Title, Year, Type, Poster) VALUES (?, ?, ?, ?)';
   db.query(query, [title, year, type, poster], (err, result) => {
     if (err) {
       console.error(err);
